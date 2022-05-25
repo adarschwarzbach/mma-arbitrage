@@ -1,7 +1,8 @@
 # imports - will need to add to dependencies list
+import json
 from bs4 import BeautifulSoup
-import re
 import requests
+import json
 
 # global variables
 #list of matchups
@@ -14,9 +15,21 @@ betOnline=[]
 everyGameSportsbook=[]
 sportsBetting=[]
 betUs = []
-#bs4 vars
+
+#bs4 variables
 page = requests.get("https://www.oddsshark.com/ufc/odds")
 soup = BeautifulSoup(page.content, 'html.parser')
+
+def createJSON():
+    dictionary={}
+    dictionary['fights']=getFights()
+    dictionary['oddsShark'] = getOddsShark()
+    dictionary['bovada'] = getBovada()
+    dictionary['betOnline'] = getBetOnline()
+    dictionary['everGameSportsbook'] = getEveryGameSportsbook()
+    dictionary['sportsBetting'] = getSportsBetting()
+    dictionary['betUs'] = getBetUs()
+    return dictionary
 
 def getFights():
     namesHTML = soup.find_all("span", class_= "sm-hide")
@@ -34,7 +47,7 @@ def getFights():
                 finalN.append(x)
     allMatchups=[]
     for x in range(0,len(finalN),2):
-        allMatchups.append(finalN[x]+":"+finalN[x+1])  
+        allMatchups.append([finalN[x],finalN[x+1]])  
     rowsList=[]
     rowsHTML = soup.find_all("div", class_= "op-block__row")
     rowsList=[x.text for x in rowsHTML]
@@ -188,4 +201,4 @@ def getBetUs():
 
 
 if __name__ == "__main__":
-    print(getBetUs())
+    print(getFights())
