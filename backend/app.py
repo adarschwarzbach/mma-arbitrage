@@ -1,20 +1,11 @@
 from flask import Flask, jsonify, make_response
+from flask_cors import CORS
 
-
-# main = Blueprint('main',__name__)
-
-# @main.route('/get_odds', methods=['POST'])
-# def info():
-#     payload = createJSON()
-#     return 'Done', 201
-
-# @main.route('/odds')
-# def info():
-#     payload = createJSON()
-#     return payload
 
 app = Flask(__name__)
+cors = CORS(app)
 from getData import *
+
 
 @app.route("/")
 @app.route("/data")
