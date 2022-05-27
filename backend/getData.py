@@ -201,4 +201,4 @@ def getBetUs():
 
 
 if __name__ == "__main__":
-    print(len(getFights()))
+    print(len(createJSON()))

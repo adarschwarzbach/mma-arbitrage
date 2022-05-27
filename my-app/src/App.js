@@ -18,14 +18,13 @@ function App() {
   }, []);
 
   if (!post) return null;
+  const ret = (
+  <div>
+    <h1>{post.fights[44]}</h1>
+    <p>{post.oddsShark[44]}</p>
+  </div>)
 
-  return (
-    <div>
-      <h1>{post.fights}</h1>
-      <p>{post.oddsShark}</p>
-      
-    </div>
-  );
+  return ret;
 }
    
 export default App;
