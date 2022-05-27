@@ -26,7 +26,7 @@ def createJSON():
     dictionary['oddsShark'] = getOddsShark()
     dictionary['bovada'] = getBovada()
     dictionary['betOnline'] = getBetOnline()
-    dictionary['everGameSportsbook'] = getEveryGameSportsbook()
+    dictionary['everyGameSportsbook'] = getEveryGameSportsbook()
     dictionary['sportsBetting'] = getSportsBetting()
     dictionary['betUs'] = getBetUs()
     return dictionary
@@ -201,4 +201,4 @@ def getBetUs():
 
 
 if __name__ == "__main__":
-    print(len(createJSON()))
+    print(len(getBetOnline()))

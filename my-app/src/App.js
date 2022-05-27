@@ -1,33 +1,45 @@
-
-
-
 import React from "react";
 import './App.css';
 import axios from "axios";
+import ReactDOM from 'react-dom';
 
 
 const baseURL = "http://localhost:5000/data";
 
-function App() {
-  const [post, setPost] = React.useState(null);
+// class Input extends ReactDOM{
 
+// } 
+
+
+
+function Data() {
+  const [post, setPost] = React.useState(null);
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
       setPost(response.data);
     });
   }, []);
-
   if (!post) return null;
   const ret = (
-  <div>
-    <h1>{post.fights[44]}</h1>
-    <p>{post.oddsShark[44]}</p>
-  </div>)
-
-  return ret;
+    <div>
+    </div>)
+  let hold =''
+  for(let i = 0;i<post.fights.length; i++){
+    hold = <div>
+    {post.fights[i][0]} vs {post.fights[i][1]}: 
+    <br></br>
+    <br></br>Odds Shark: {post.oddsShark[i][0]} {post.oddsShark[i][1]}
+    <br></br>Bovada: {post.bovada[i][0]} {post.bovada[i][1]}
+    <br></br>Bet Online: {post.betOnline[i][0]} {post.betOnline[i][1]}
+    <br></br>Every Game Sportsbook: {post.everyGameSportsbook[i][0]} {post.everyGameSportsbook[i][1]}
+    <br></br>Sports Betting: {post.sportsBetting[i][0]} {post.sportsBetting[i][1]}
+    <br></br>Bet Us: {post.betUs[i][0]} {post.betUs[i][1]}
+    </div>
+  }
+  return hold;
 }
    
-export default App;
+export default Data;
 
 
 
