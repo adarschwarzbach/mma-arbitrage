@@ -1,15 +1,30 @@
 import React from "react";
 import './App.css';
 import axios from "axios";
-import ReactDOM from 'react-dom';
+import { useState } from 'react';
 
 
 const baseURL = "http://localhost:5000/data";
 
-// class Input extends ReactDOM{
+// function Input(){
+//   render(){
+//     return(
+//       <textarea>
+//         Hello there, this is some text in a text area
+//       </textarea>
+//   )}
+// }
 
-// } 
 
+function Input() {
+  const [input, setInput] = useState(''); // '' is the initial state value
+  return (
+    <div>
+    <label>Please specify:</label>
+    <input value={input} onInput={e => setInput(e.target.value)}/>
+    </div>
+  );
+}
 
 
 function Data() {
@@ -38,8 +53,13 @@ function Data() {
   }
   return hold;
 }
-   
-export default Data;
+const funcs = {
+  Input() { console.log('foo') }, 
+  Data() { console.log('bar') },
+  baz() { funcs.Input(); funcs.Data() } // here is the fix
+}
+
+export default funcs;
 
 
 
