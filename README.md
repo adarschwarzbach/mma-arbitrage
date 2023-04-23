@@ -1,6 +1,8 @@
-# mma-arbitrage
-This is a web scrapping project to see the odds for upcoming UFC fights on different sports books. I am planning on implementing a front-end in React and database in MySQL to display and save this information. 
+## 🥊🥋🤼‍♂️MMA Arbitrage💸💳💰
+MMA Arbitrage is a web scraping project that aims to gather odds for upcoming UFC fights from different sportsbooks. The project is currently in its early stages and the developer plans to implement a front-end in React and a database in MySQL to display and store this information.
 
-<br>
-I used Beautiful Soup and Python to do the scrapping which can be found in 
-/backend/getData. I used Flask for my backend framework. The back-end endpoint can be found in /backend/main. The front-end endpoint can be found in /my-app/src/App. 
+# Technologies Used
+The developer used Beautiful Soup and Python for web scraping, with the code located in /backend/getData. Flask was used as the backend framework with the endpoint located in /backend/main.
+
+# Future Development
+The next steps for this project include developing a client-side application using React and integrating a MySQL database to store and display the gathered information.
